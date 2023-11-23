@@ -1,0 +1,127 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjfaxp0mogr"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_e3esq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uf7a2"]
+font_size = 48
+shadow_size = 22
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.878431)
+shadow_offset = Vector2(2, 2)
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e3esq")
+
+[node name="OptionsContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.5
+offset_top = -248.0
+offset_right = 450.5
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
+columns = 3
+
+[node name="Rock" type="Button" parent="OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 22
+text = "ROCK"
+
+[node name="Paper" type="Button" parent="OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 22
+text = "PAPER"
+
+[node name="Scissors" type="Button" parent="OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 22
+text = "SCISSORS"
+
+[node name="PlayerContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 196.0
+offset_bottom = 188.0
+
+[node name="PlayerLabel" type="Label" parent="PlayerContainer"]
+layout_mode = 2
+text = "Player"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[node name="OpponentPointsLabel" type="Label" parent="PlayerContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[node name="OpponentLabel" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -196.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = 188.0
+grow_horizontal = 0
+
+[node name="OpponentLabel" type="Label" parent="OpponentLabel"]
+layout_mode = 2
+text = "Opponent"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[node name="OpponentPointsLabel" type="Label" parent="OpponentLabel"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[node name="ResultLabel" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.0
+offset_top = 100.0
+offset_right = 117.0
+offset_bottom = 284.0
+grow_horizontal = 2
+theme_override_constants/v_separation = 50
+
+[node name="ResultLabel" type="Label" parent="ResultLabel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "ROCK"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[node name="OpponentPointsLabel" type="Label" parent="ResultLabel"]
+layout_mode = 2
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_uf7a2")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="OptionsContainer/Rock" to="." method="_on_button_pressed" binds= ["Rock"]]
+[connection signal="pressed" from="OptionsContainer/Paper" to="." method="_on_button_pressed" binds= ["Paper"]]
+[connection signal="pressed" from="OptionsContainer/Scissors" to="." method="_on_button_pressed" binds= ["Scissors"]]
