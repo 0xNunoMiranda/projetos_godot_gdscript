@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0hn0s556vyhx"]
+
+[ext_resource type="Texture2D" uid="uid://c6hw6bvf1vale" path="res://assets/modal_spritesheet.png" id="1_2sha2"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2sha2")
+centered = false
+hframes = 2
